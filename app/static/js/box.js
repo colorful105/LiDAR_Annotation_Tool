@@ -556,8 +556,8 @@ function OutputBox(box) {
     return{
         type: box.object_id,
         truncated: "0.00",
-        occluded: "0",
-        alpha: "0",
+        occluded: "null",
+        alpha: "null",
         left: v1.z,
         top: v1.x,
         right: v2.z,

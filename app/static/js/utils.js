@@ -270,21 +270,21 @@ function save() {
   var thisfilename = filename.substring(filename.lastIndexOf('.'), 0);
   for (var i = 0; i < boundingBoxes.length; i++) {
     outputBoxes.push(new OutputBox(boundingBoxes[i]));
-    console.log(outputBoxes);
   }
   var values = outputBoxes.map(function (item) {
       return Object.values(item);
   });
-  var stringifiedOutput = JSON.stringify(values).replace(/[\[\]"]+/g,'');
-  stringifiedOutput = stringifiedOutput.replace(/null/g, 0);
+  var stringifiedOutput = JSON.stringify(values);
+  stringifiedOutput = stringifiedOutput.replace(/"+/g, '');
+  stringifiedOutput = stringifiedOutput.replace(/],/g, '\n');
+  stringifiedOutput = stringifiedOutput.replace(/]/g, '');
+  stringifiedOutput = stringifiedOutput.replace(/\[/g, '');
   stringifiedOutput = stringifiedOutput.replace(/,/g, " ");
-  console.log(stringifiedOutput);
   stringifiedOutput = stringifiedOutput.replace(/-?\d+(\.\d+)?/g, function(match) {
-    return Number(match).toFixed(2);
+      return Number(match).toFixed(2);
   });
+  stringifiedOutput = stringifiedOutput.replace(/null/g, 0);
   var file = new File([stringifiedOutput], thisfilename.toString()+".txt", {type: "/txt;charset=utf-8"});
-
-
   saveAs(file);
 }
 //
