@@ -72,9 +72,9 @@ function Box(anchor, cursor, angle, boundingBox, boxHelper, data) {
     }
    
     // method for resizing bounding box given cursor coordinates
-    // 
-    // since BoxHelper3 draws a box in the same orientation as that of the point cloud, 
-    // we take the anchor and cursor, rotate them by the angle of the camera, draw the box, 
+    //
+    // since BoxHelper3 draws a box in the same orientation as that of the point cloud,
+    // we take the anchor and cursor, rotate them by the angle of the camera, draw the box,
     // then rotate the box back
     this.resize = function(cursor) {
         // checks and executes only if anchor does not overlap with cursor to avoid 0 determinant
@@ -85,7 +85,7 @@ function Box(anchor, cursor, angle, boundingBox, boxHelper, data) {
 
             v1.y = 0;
             v2.y = 0;
-            
+
             // rotate cursor and anchor
             rotate(v1, v2, this.angle);
 
@@ -548,6 +548,7 @@ function stringifyBoundingBoxes(boundingBoxes) {
 //     this.location ="0";
 //     this.angle = box.angle;
 // }
+
 function OutputBox(box) {
     var v1 = box.geometry.vertices[0];
     var v2 = box.geometry.vertices[1];
@@ -557,7 +558,7 @@ function OutputBox(box) {
         type: box.object_id,
         truncated: "0.00",
         occluded: "null",
-        alpha: "null",
+        alpha: "0.00",
         left: v1.z,
         top: v1.x,
         right: v2.z,
@@ -565,12 +566,10 @@ function OutputBox(box) {
         height: box.heightCar,
         width: distance2D(v2, v3),
         length: distance2D(v1, v3),
-        x: center.z,
-        y: center.x,
-        z: box.centerZ,
+        x: -center.x,
+        y: -box.centerZ+0.5,
+        z: center.z,
         angle: box.angle
     };
 }
-
-
 

@@ -2,11 +2,12 @@ var options = `<select>
     <option value="select">select</option>
     <option value="stop_sign">정류장 표지판</option>
     <option value="bollard">볼라드</option>
-    <option value="jaywalking_prevention_facility">무단횡단 방지시설</option>
+    <option value="no_jaywalking_facility">무단횡단 금지시설</option>
     <option value="traffic_Light">신호등주</option>
     <option value="road_safety_sign">도로 안전 표지판</option>
-    <option value="manhole">맨홀</option>
-    <option value="trench">트랜치</option>
+    <option value="Car">승용차</option>
+    <option value="Van">승합차</option>
+    <option value="Truck">트럭</option>
     /select`;
 
 // method to add row to object id table
