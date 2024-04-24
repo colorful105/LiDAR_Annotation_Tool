@@ -4,6 +4,6 @@ authors:
 - family-names: "Jo"
   given-names: "Junhyeon"
 title: "LiDAR_Annotation_tool"
-version: 2.0.4
+version: 1.0.0
 date-released: 2017-12-18
 url: "https://github.com/colorful105/LiDAR_Annotation_Tool"
